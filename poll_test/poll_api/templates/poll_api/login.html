@@ -1,0 +1,23 @@
+<h3> Login </h3>
+
+<form  action="" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" name="" value="">
+
+</form>
+
+
+
+<!-- <form action="" method="get">
+{% csrf_token %}
+{% for question in polls.question_set.all %}
+  <h2 class="mt-5 mb-5">{{ question }}</h2>
+  {% for choice in question.answer_set.all %}
+    <input type="{{ question.type }}" name="choice" id="{{ forloop.counter }}" value="" />
+    <label for="{{ forloop.counter }}">{{ choice.text }}</label><br />
+  {% endfor %}
+{% endfor %}
+<br />
+<input type="submit" value="Отправить" />
+</form> -->

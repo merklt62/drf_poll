@@ -1,0 +1,27 @@
+{% extends 'poll_api/base.html' %}
+
+{% block title %}
+  {{ polls.poll_name }}
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-5">{{ polls.poll_name }}</h1>
+
+
+
+
+{% for question in polls.question_set.all %}
+  <h2 class="mt-5 mb-5">{{ question }}</h2>
+  <form action="" method="post">
+    {% for choice in question.answer_set.all %}
+      {% csrf_token %}
+      <input type="{{ question.type }}" name="choice" id="{{ forloop.counter }}" value="" />
+      <label for="{{ forloop.counter }}">{{ choice.text }}</label><br />
+    {% endfor %}
+  <br />
+  <input type="submit" value="Отправить" />
+  </form>
+{% endfor %}
+
+{% endblock %}
